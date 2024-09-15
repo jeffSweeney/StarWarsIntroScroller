@@ -15,24 +15,13 @@ public struct StarWarsScrollerView: View {
             StarryBackgroundView()
             
             if showingALongTimeAgo {
-                ALongTimeAgoView()
+                ALongTimeAgoView(showingView: $showingALongTimeAgo)
             } else {
                 EpisodeView()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
-        .onAppear {
-            if showingALongTimeAgo {
-                Task { await transitionViews() }
-            }
-        }
-    }
-    
-    @MainActor
-    private func transitionViews() async {
-        try? await Task.sleep(nanoseconds: 6_000_000_000)
-        showingALongTimeAgo = false
     }
 }
 
