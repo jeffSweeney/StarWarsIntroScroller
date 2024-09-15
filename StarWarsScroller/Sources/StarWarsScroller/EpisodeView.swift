@@ -15,37 +15,36 @@ internal struct EpisodeView: View {
         Group {
             if showingCloneWars {
                 Text("Clone Wars!")
-                    .task { await showEpisode() }
+                    .task { await cycleViews() }
             } else {
                 VStack(alignment: .center, spacing: 24) {
                     Text("Episode I")
-                    Text("iPhone Calculator")
+                    Text("iPhone Calculator from the Fruit Company")
+                        .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.85)
                 }
-                .task { await completeIntro() }
+                .task { await cycleViews() }
             }
         }
+        .padding(.horizontal)
         .font(.largeTitle)
         .bold()
         .foregroundStyle(Color.CWScrollerColor)
         .opacity(shouldStartDisappearing ? 0 : 1)
         .scaleEffect(shouldStartDisappearing ? 0.5 : 1)
-        .animation(.easeInOut(duration: 5), value: shouldStartDisappearing)
+        .animation(.easeOut(duration: 5), value: shouldStartDisappearing)
     }
     
     @MainActor
-    private func showEpisode() async {
-        shouldStartDisappearing = true
-        try? await Task.sleep(nanoseconds: 5_000_000_000)
-        showingCloneWars = false
-        shouldStartDisappearing = false
-    }
-    
-    @MainActor
-    private func completeIntro() async {
+    private func cycleViews() async {
         try? await Task.sleep(nanoseconds: 1_000_000_000) // Allow moment before fading
         shouldStartDisappearing = true
         try? await Task.sleep(nanoseconds: 5_000_000_000) // Allow full fadeout
-        // TODO: Close intro flow
+        
+        if showingCloneWars {
+            showingCloneWars = false
+            shouldStartDisappearing = false
+        }
     }
 }
 

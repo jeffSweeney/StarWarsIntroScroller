@@ -8,20 +8,22 @@
 import SwiftUI
 
 public struct StarWarsScrollerView: View {
-    @State private var showingIntro = true
+    @State private var showingALongTimeAgo = true
     
     public var body: some View {
-        Group {
-            if showingIntro {
+        ZStack {
+            StarryBackgroundView()
+            
+            if showingALongTimeAgo {
                 ALongTimeAgoView()
             } else {
                 EpisodeView()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black)
+        .ignoresSafeArea()
         .onAppear {
-            if showingIntro {
+            if showingALongTimeAgo {
                 Task { await transitionViews() }
             }
         }
@@ -30,7 +32,7 @@ public struct StarWarsScrollerView: View {
     @MainActor
     private func transitionViews() async {
         try? await Task.sleep(nanoseconds: 6_000_000_000)
-        showingIntro = false
+        showingALongTimeAgo = false
     }
 }
 
