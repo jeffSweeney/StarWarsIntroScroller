@@ -16,18 +16,18 @@ public struct ALongTimeAgoView: View {
             Text("A long time ago in a galaxy far, far away ....")
                 .modifier(CWIntroEaseInModifier(introMessage: .firstText, showingContent: $showingFirstText))
             
-            Text("Or probably just sometime in 2024 from my home in Maryland ...")
+            Text("Or probably just sometime recently from my home in Maryland ...")
                 .modifier(CWIntroEaseInModifier(introMessage: .secondText, showingContent: $showingSecondText))
         }
         .font(.title)
-        .foregroundStyle(.blue)
+        .foregroundStyle(Color.CWFarFarAwayColor)
         .fontWeight(.semibold)
         .padding(.horizontal)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black)
     }
 }
 
 #Preview {
     ALongTimeAgoView()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
 }

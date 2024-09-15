@@ -22,6 +22,7 @@ internal struct CWIntroEaseInModifier: ViewModifier {
             }
     }
     
+    @MainActor
     private func addText() async {
         try? await Task.sleep(nanoseconds: introMessage.delay)
         showingContent = true
