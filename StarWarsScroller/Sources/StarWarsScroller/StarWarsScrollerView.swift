@@ -10,6 +10,9 @@ import SwiftUI
 public struct StarWarsScrollerView: View {
     @State private var showingALongTimeAgo = true
     
+    let episodeNumber: UInt8
+    let appName: String
+    
     public var body: some View {
         ZStack {
             StarryBackgroundView()
@@ -17,7 +20,7 @@ public struct StarWarsScrollerView: View {
             if showingALongTimeAgo {
                 ALongTimeAgoView(showingView: $showingALongTimeAgo)
             } else {
-                EpisodeView()
+                EpisodeView(episodeNumber: episodeNumber, appName: appName)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -26,5 +29,5 @@ public struct StarWarsScrollerView: View {
 }
 
 #Preview {
-    StarWarsScrollerView()
+    StarWarsScrollerView(episodeNumber: 2, appName: "AccuWeather Lite")
 }

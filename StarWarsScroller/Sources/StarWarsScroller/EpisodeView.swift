@@ -11,6 +11,9 @@ internal struct EpisodeView: View {
     @State private var shouldStartDisappearing = false
     @State private var showingCloneWars = true
     
+    let episodeNumber: UInt8
+    let appName: String
+    
     var body: some View {
         Group {
             if showingCloneWars {
@@ -18,8 +21,8 @@ internal struct EpisodeView: View {
                     .task { await cycleViews() }
             } else {
                 VStack(alignment: .center, spacing: 24) {
-                    Text("Episode I")
-                    Text("iPhone Calculator from the Fruit Company")
+                    Text("Episode \(episodeNumber)")
+                    Text(appName)
                         .multilineTextAlignment(.center)
                         .minimumScaleFactor(0.85)
                 }
@@ -49,7 +52,7 @@ internal struct EpisodeView: View {
 }
 
 #Preview {
-    EpisodeView()
+    EpisodeView(episodeNumber: 1, appName: "iPhone Calculator")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
 }
