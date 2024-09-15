@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EpisodeView: View {
+internal struct EpisodeView: View {
     var body: some View {
         Text("Clone Wars!")
             .font(.largeTitle)

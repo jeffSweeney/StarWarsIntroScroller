@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public struct ALongTimeAgoView: View {
+internal struct ALongTimeAgoView: View {
     @State private var showingFirstText = false
     @State private var showingSecondText = false
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .leading, spacing: 32) {
             Text("A long time ago in a galaxy far, far away ....")
                 .modifier(CWIntroEaseInModifier(introMessage: .firstText, showingContent: $showingFirstText))
