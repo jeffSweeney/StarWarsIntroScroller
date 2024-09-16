@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Color {
+internal extension Color {
     static var CWFarFarAwayColor: Color = {
         return Color(red: 0.259, green: 0.627, blue: 1)
     }()

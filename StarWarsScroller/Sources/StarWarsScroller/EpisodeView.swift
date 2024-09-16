@@ -17,8 +17,12 @@ internal struct EpisodeView: View {
     var body: some View {
         Group {
             if showingCloneWars {
-                Text("Clone Wars!")
-                    .task { await cycleViews() }
+                CWHollowText(text: "Clone Wars!",
+                           fontSize: 84,
+                           strokeWidth: 0.75,
+                           foregroundColor: .black,
+                           strokeColor: Color.CWScrollerColor)
+                .task { await cycleViews() }
             } else {
                 VStack(alignment: .center, spacing: 24) {
                     Text("Episode \(episodeNumber)")
@@ -26,13 +30,13 @@ internal struct EpisodeView: View {
                         .multilineTextAlignment(.center)
                         .minimumScaleFactor(0.85)
                 }
+                .font(.largeTitle)
+                .bold()
+                .foregroundStyle(Color.CWScrollerColor)
                 .task { await cycleViews() }
             }
         }
         .padding(.horizontal)
-        .font(.largeTitle)
-        .bold()
-        .foregroundStyle(Color.CWScrollerColor)
         .opacity(shouldStartDisappearing ? 0 : 1)
         .scaleEffect(shouldStartDisappearing ? 0.5 : 1)
         .animation(.easeOut(duration: 5), value: shouldStartDisappearing)

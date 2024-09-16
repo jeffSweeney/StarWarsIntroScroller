@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StarryBackgroundView: View {
+internal struct CWStarryBackgroundView: View {
     let starCount = 100  // Number of stars
     let starColor = Color.white  // Star color
 
@@ -40,5 +40,5 @@ struct StarryBackgroundView: View {
 }
 
 #Preview {
-    StarryBackgroundView()
+    CWStarryBackgroundView()
 }

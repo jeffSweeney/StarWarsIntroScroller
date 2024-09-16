@@ -15,7 +15,7 @@ public struct StarWarsScrollerView: View {
     
     public var body: some View {
         ZStack {
-            StarryBackgroundView()
+            CWStarryBackgroundView()
             
             if showingALongTimeAgo {
                 ALongTimeAgoView(showingView: $showingALongTimeAgo)
