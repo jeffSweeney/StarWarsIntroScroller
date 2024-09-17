@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  SweeneyCloneWarsIntro.swift
 //  
 //
 //  Created by Jeffrey Sweeney on 9/15/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct StarWarsScrollerView: View {
+public struct SweeneyCloneWarsIntro: View {
     @State private var showingALongTimeAgo = true
     
     let episodeNumber: UInt8
@@ -29,5 +29,5 @@ public struct StarWarsScrollerView: View {
 }
 
 #Preview {
-    StarWarsScrollerView(episodeNumber: 2, appName: "AccuWeather Lite")
+    SweeneyCloneWarsIntro(episodeNumber: 2, appName: "AccuWeather Lite")
 }
