@@ -26,7 +26,7 @@ internal struct EpisodeView: View {
                 .task { await cycleViews() }
             } else {
                 VStack(alignment: .center, spacing: 24) {
-                    Text("Episode \(episodeNumber)")
+                    Text("Episode \(episodeNumber.asSingleDigitRomanNumeral)")
                     Text(appName)
                         .multilineTextAlignment(.center)
                         .minimumScaleFactor(0.85)
