@@ -22,7 +22,7 @@ internal struct EpisodeView: View {
                            fontSize: 84,
                            strokeWidth: 0.75,
                            foregroundColor: .black,
-                           strokeColor: Color.CWScrollerColor)
+                           strokeColor: Color.SCWScrollerColor)
                 .task { await cycleViews() }
             } else {
                 VStack(alignment: .center, spacing: 24) {
@@ -33,7 +33,7 @@ internal struct EpisodeView: View {
                 }
                 .font(.largeTitle)
                 .bold()
-                .foregroundStyle(Color.CWScrollerColor)
+                .foregroundStyle(Color.SCWScrollerColor)
                 .task { await cycleViews() }
             }
         }

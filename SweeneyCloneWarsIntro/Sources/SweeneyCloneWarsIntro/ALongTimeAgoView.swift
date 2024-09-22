@@ -21,7 +21,7 @@ internal struct ALongTimeAgoView: View {
                 .modifier(CWIntroEaseInModifier(introMessage: .secondText, showingContent: $showingSecondText))
         }
         .font(.title)
-        .foregroundStyle(Color.CWFarFarAwayColor)
+        .foregroundStyle(Color.SCWFarFarAwayColor)
         .fontWeight(.semibold)
         .padding(.horizontal)
         .onChange(of: showingSecondText, { Task { await completeView() } })
