@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct SweeneyCloneWarsIntro: View {
+    @Binding var showingIntro: Bool
     @State private var showingALongTimeAgo = true
     
     let episodeNumber: UInt8
@@ -17,10 +18,24 @@ public struct SweeneyCloneWarsIntro: View {
         ZStack {
             CWStarryBackgroundView()
             
+            VStack {
+                Spacer()
+                Button(action: { showingIntro = false }, label: {
+                    Text("SKIP")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 250)
+                        .background(Color.gray.opacity(0.25))
+                        .clipShape(Capsule())
+                })
+            }
+            .padding(48)
+            
             if showingALongTimeAgo {
                 ALongTimeAgoView(showingView: $showingALongTimeAgo)
             } else {
-                EpisodeView(episodeNumber: episodeNumber, appName: appName)
+                EpisodeView(showingView: $showingIntro, episodeNumber: episodeNumber, appName: appName)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -29,5 +44,5 @@ public struct SweeneyCloneWarsIntro: View {
 }
 
 #Preview {
-    SweeneyCloneWarsIntro(episodeNumber: 2, appName: "AccuWeather Lite")
+    SweeneyCloneWarsIntro(showingIntro: .constant(true),episodeNumber: 2, appName: "AccuWeather Lite")
 }
