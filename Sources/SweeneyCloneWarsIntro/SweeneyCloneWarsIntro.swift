@@ -8,11 +8,17 @@
 import SwiftUI
 
 public struct SweeneyCloneWarsIntro: View {
-    @Binding var showingIntro: Bool
     @State private var showingALongTimeAgo = true
     
+    @Binding var showingIntro: Bool
     let episodeNumber: UInt8
     let appName: String
+    
+    public init(showingIntro: Binding<Bool>, episodeNumber: UInt8, appName: String) {
+        self._showingIntro = showingIntro
+        self.episodeNumber = episodeNumber
+        self.appName = appName
+    }
     
     public var body: some View {
         ZStack {
