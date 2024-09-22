@@ -14,6 +14,9 @@ let package = Package(
             targets: ["SweeneyCloneWarsIntro"]),
     ],
     targets: [
-        .target(name: "SweeneyCloneWarsIntro")
+        .target(
+            name: "SweeneyCloneWarsIntro",
+            path: "Sources/SweeneyCloneWarsIntro"
+        )
     ]
 )

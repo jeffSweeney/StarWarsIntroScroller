@@ -8,6 +8,7 @@
 import SwiftUI
 
 internal struct EpisodeView: View {
+    @Binding var showingView: Bool
     @State private var shouldStartDisappearing = false
     @State private var showingCloneWars = true
     
@@ -51,12 +52,14 @@ internal struct EpisodeView: View {
         if showingCloneWars {
             showingCloneWars = false
             shouldStartDisappearing = false
+        } else {
+            showingView = false
         }
     }
 }
 
 #Preview {
-    EpisodeView(episodeNumber: 1, appName: "iPhone Calculator")
+    EpisodeView(showingView: .constant(true), episodeNumber: 1, appName: "iPhone Calculator")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
 }
